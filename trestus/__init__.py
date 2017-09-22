@@ -65,6 +65,7 @@ def main():
     systems = {}
 
     for card_list in lists:
+        card.parsed_date = card.create_date.astimezone(pytz.utc)
         cards = card_list.list_cards()
         cards.sort(key=lambda c: c.create_date, reverse=True)
         for card in cards:
